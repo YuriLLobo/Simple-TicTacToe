@@ -10,13 +10,16 @@ function playTurn() {
 
   square.textContent = currentPlayer;
 
+  
+
   if (checkWin()) {
     alert(`Player ${currentPlayer} won!`);
     gameFinished = true;
-    return;
+    window.location.reload();
   }
 
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  
 }
 
 function checkWin() {
