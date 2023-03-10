@@ -10,8 +10,6 @@ function playTurn() {
 
   square.textContent = currentPlayer;
 
-  
-
   if (checkWin()) {
     alert(`Player ${currentPlayer} won!`);
     gameFinished = true;
@@ -19,7 +17,17 @@ function playTurn() {
   }
 
   currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+
+  if (checkDraw()) {
+    alert('Draw!');
+    gameFinished = true;
+    window.location.reload();
+  }
   
+}
+
+function checkDraw() {
+  return [...squares].every(square => square.textContent !== '');
 }
 
 function checkWin() {
