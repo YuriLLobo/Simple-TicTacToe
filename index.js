@@ -27,7 +27,10 @@ function playTurn() {
 }
 
 function checkDraw() {
-  return [...squares].every(square => square.textContent !== '');
+  if ([...squares].every(square => square.textContent !== '' && !checkWin())){
+    return true;
+  }
+
 }
 
 function checkWin() {
